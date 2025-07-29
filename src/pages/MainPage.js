@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import StatusBar from '../components/StatusBar';
 import BottomNavBar from '../components/BottomNavBar';
 import TodayArticle from '../components/TodayArticle'; // 오늘의 기사 카드
@@ -8,30 +9,70 @@ import appIcon from '../assets/images/app-logo.svg';
 import '../assets/styles/MainPage.css';
 
 function MainPage() {
+  const [latestNews, setLatestNews] = useState([]);
+  const [todayNews, setTodayNews] = useState([]);
+  const pattern = [1, 2, 3, 2, 1];
+
   // 목업 데이터
-  const [latestNews] = useState([
-    { title: 'JTBC: 오늘의 주요 뉴스', link: '#', image: '' },
-    { title: '연합뉴스: 핫이슈 속보', link: '#', image: '' },
-    { title: '중앙일보: 아침 헤드라인', link: '#', image: '' },
-    { title: '경향신문: 정치 뉴스', link: '#', image: '' },
-    { title: '한국일보: 경제 핫토픽', link: '#', image: '' },
-    { title: '조선일보: 국제 뉴스', link: '#', image: '' },
-    { title: '한겨레: 사회 이슈', link: '#', image: '' },
-    { title: 'KBS 뉴스: 속보 모음', link: '#', image: '' },
-    { title: 'SBS 뉴스: 라이프 스타일', link: '#', image: '' },
-    { title: 'YTN: 오늘의 마지막 뉴스', link: '#', image: '' },
-  ]);
+  //const [latestNews] = useState([
+  //  { title: 'JTBC: 오늘의 주요 뉴스', link: '#', image: '' },
+  //  { title: '연합뉴스: 핫이슈 속보', link: '#', image: '' },
+  //  { title: '중앙일보: 아침 헤드라인', link: '#', image: '' },
+  //  { title: '경향신문: 정치 뉴스', link: '#', image: '' },
+  //  { title: '한국일보: 경제 핫토픽', link: '#', image: '' },
+  //  { title: '조선일보: 국제 뉴스', link: '#', image: '' },
+  //  { title: '한겨레: 사회 이슈', link: '#', image: '' },
+  //  { title: 'KBS 뉴스: 속보 모음', link: '#', image: '' },
+  //  { title: 'SBS 뉴스: 라이프 스타일', link: '#', image: '' },
+  //  { title: 'YTN: 오늘의 마지막 뉴스', link: '#', image: '' },
+  //]);
 
-  const [todayNews] = useState([
-    { title: '오늘의 심층 기사 1', link: '#', image: '' },
-    { title: '오늘의 심층 기사 2', link: '#', image: '' },
-    { title: '오늘의 심층 기사 3', link: '#', image: '' },
-    { title: '오늘의 심층 기사 4', link: '#', image: '' },
-    { title: '오늘의 심층 기사 5', link: '#', image: '' },
-    { title: '오늘의 심층 기사 6', link: '#', image: '' },
-  ]);
+  //const [todayNews] = useState([
+  //  { title: '오늘의 심층 기사 1', link: '#', image: '' },
+  //  { title: '오늘의 심층 기사 2', link: '#', image: '' },
+  //  { title: '오늘의 심층 기사 3', link: '#', image: '' },
+  //  { title: '오늘의 심층 기사 4', link: '#', image: '' },
+  // { title: '오늘의 심층 기사 5', link: '#', image: '' },
+  // { title: '오늘의 심층 기사 6', link: '#', image: '' },
+  //]);
 
-  const pattern = [1, 2, 3, 2, 1]; // 카드 배치 패턴
+  // const pattern = [1, 2, 3, 2, 1]; // 카드 배치 패턴
+
+  // ✅ 최신 뉴스 API
+  useEffect(() => {
+    axios
+      .get('https://api.newsto.r-e.kr/news/latest')
+      .then((res) => {
+        if (res.data && Array.isArray(res.data)) {
+          const formattedNews = res.data.map((news) => ({
+            title: news.title,
+            link: news.link,
+            image:
+              news.image && news.image !== '' ? news.image : placeholderImage,
+          }));
+          setLatestNews(formattedNews);
+        }
+      })
+      .catch((err) => console.error('최신 뉴스 불러오기 실패:', err));
+  }, []);
+
+  // ✅ 오늘의 기사 API
+  useEffect(() => {
+    axios
+      .get('https://api.newsto.r-e.kr/news/random')
+      .then((res) => {
+        if (res.data && Array.isArray(res.data)) {
+          const formattedNews = res.data.map((news) => ({
+            title: news.title,
+            link: news.link,
+            image:
+              news.image && news.image !== '' ? news.image : placeholderImage,
+          }));
+          setTodayNews(formattedNews.slice(0, 6)); // 최대 6개만 사용
+        }
+      })
+      .catch((err) => console.error('오늘의 기사 불러오기 실패:', err));
+  }, []);
 
   return (
     <div className="main-wrapper">
@@ -51,11 +92,7 @@ function MainPage() {
             <div key={index} className="news-card">
               <a href={news.link} target="_blank" rel="noopener noreferrer">
                 <img
-                  src={
-                    news.image && news.image !== ''
-                      ? news.image
-                      : placeholderImage
-                  }
+                  src={news.image}
                   alt={news.title}
                   className="news-thumbnail"
                 />
