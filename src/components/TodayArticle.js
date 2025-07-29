@@ -1,3 +1,4 @@
+import React from 'react';
 import '../assets/styles/TodayArticle.css';
 import placeholderImage from '../assets/images/placeholder.png';
 
@@ -14,6 +15,8 @@ function TodayArticle({ news, sizeType }) {
       style={{
         width: sizes[sizeType].width,
         height: sizes[sizeType].height,
+        backgroundImage: `
+          linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
       }}
     >
       <img
@@ -21,7 +24,7 @@ function TodayArticle({ news, sizeType }) {
         alt={news.title}
         className="today-thumbnail"
       />
-      <p className="today-title">{news.title}</p>
+      <p className="article-title">{news.title}</p>
     </div>
   );
 }

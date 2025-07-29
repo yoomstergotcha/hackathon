@@ -1,5 +1,5 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import axios from 'axios';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
@@ -9,24 +9,25 @@ function OnboardingQuestionPage7({
   questionNumber = 7,
   totalQuestions = 7,
   question = '질문',
-  userID,
+  userId,
 }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState(null);
 
   const handleFinishOnboarding = async () => {
     setLoading(true);
 
     try {
       // ✅ PATCH 요청
-      const response = await axios.patch(
-        `http://localhost:8080/api/users/${userId}/status`,
-        {
-          status: 'A', // 🔹 자가진단 완료 시 status를 A로 변경
-        }
-      );
+      //const response = await axios.patch(
+      //  `http://localhost:8080/api/users/${userId}/status`,
+      // {
+      //   status: 'A', // 🔹 자가진단 완료 시 status를 A로 변경
+      // }
+      //);
 
-      console.log('자가진단 결과 저장 성공:', response.data);
+      console.log('자가진단 결과 저장 성공:');
 
       alert('자가진단 완료! 메인페이지로 이동합니다.');
       navigate('/main'); // 🔹 메인 페이지로 이동
@@ -36,6 +37,11 @@ function OnboardingQuestionPage7({
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleAnswer = (selected) => {
+    setAnswer(selected);
+    handleFinishOnboarding();
   };
 
   const progressWidth = `${(questionNumber / totalQuestions) * 311}px`;
