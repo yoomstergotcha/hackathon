@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
 import resultImage from '../assets/images/onboarding_result.png'; // 디자이너 이미지

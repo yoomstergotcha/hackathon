@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/OnboardingStartPage.css';
 import StatusBar from '../components/StatusBar';
-import onboardingresult from '../assets/images/onboarding.png';
+import onboardingresult from '../assets/images/onboarding.jpg';
 
 function OnboardingStartPage({}) {
   const navigate = useNavigate();

@@ -18,6 +18,7 @@
 
 .today-title {
   margin-left: 16px;
+  margin-bottom: 32px;
   margin-right: 288px;
   font-size: 14px;
   font-weight: 600;
@@ -26,12 +27,12 @@
 }
 
 .article-title {
-  position: absolute;
-  bottom: 16px;
+  position: relative;
+  bottom: 32px;
   left: 16px;
   right: 16px;
   color: white;
-  font-size: 16px;
+  font-size: 2cqmin;
   font-weight: 600;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 

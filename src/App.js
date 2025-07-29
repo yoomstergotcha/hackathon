@@ -14,6 +14,7 @@ import OnboardingQuestionPage6 from './pages/OnboardingQuestionPage6';
 import OnboardingQuestionPage7 from './pages/OnboardingQuestionPage7';
 import OnboardingResultPage from './pages/OnboardingResultPage';
 import MainPage from './pages/MainPage';
+import Alarm from './pages/AlarmPage';
 
 function App() {
   return (
@@ -66,6 +67,8 @@ function App() {
             />
 
             <Route path="/main" element={<MainPage />} />
+
+            <Route path="/alarm" element={<Alarm />} />
           </Routes>
         </Router>
       </div>

@@ -24,6 +24,7 @@ function TodayArticle({ news, sizeType }) {
         alt={news.title}
         className="today-thumbnail"
       />
+      <div className="overlay"></div>
       <p className="article-title">{news.title}</p>
     </div>
   );
