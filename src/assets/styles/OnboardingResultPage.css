@@ -1,0 +1,106 @@
+.onboarding-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 성향 텍스트 */
+.result-texts {
+  margin-top: 16px;
+  text-align: left;
+  width: 90%;
+}
+
+.tendency-title {
+  color: #000;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.tendency-summary {
+  color: #000;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 4px;
+}
+
+/* 중앙 이미지 */
+.result-image-wrapper {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.result-image {
+  width: 171px;
+  height: 171px;
+  object-fit: contain;
+}
+
+/* 하단 회색 바 */
+.bottom-gray-bar {
+  position: relative;
+  bottom: 0;
+  width: 375px;
+  height: 350px;
+  background: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  border-radius: 0 0 20px 20px;
+}
+
+.percentage-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 231px;
+  height: 56px;
+  padding: 16px 47px;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--b, #3c3e44);
+  background: var(--w, #fcfeff);
+}
+
+.percentage-text {
+  color: #000;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tendency-description {
+  margin-top: 20px;
+  padding: 0 20px;
+  text-align: center;
+  color: #000;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}

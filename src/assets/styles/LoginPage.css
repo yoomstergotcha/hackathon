@@ -1,0 +1,93 @@
+.login-page {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 206px; /* 브랜드 이름 위치 */
+}
+
+.brand-box {
+  display: flex;
+  width: 155px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px; /* 아이디 입력까지 여백 (206→323 = 117px) */
+}
+
+.login-input {
+  width: 311px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 0.5px solid #3c3e44;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.login-button {
+  width: 311px;
+  height: 48px;
+  border-radius: 5px;
+  background: var(--pri, #8646f2);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.login-links {
+  font-size: 12px;
+  color: #fff;
+  margin-top: 12px;
+}
+.login-links a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 4px;
+}
+
+.back-button-container {
+  position: absolute;
+  top: 51px;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  z-index: 10; /* 필요한 경우 위로 올리기 */
+}
+
+.back-button {
+  all: unset; /* 버튼 기본 스타일 제거 */
+  width: 24px; /* 원래 크기로 고정 */
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+  padding: 3px;
+}
+
+.link {
+  cursor: pointer;
+  color: #3c3e44;
+  text-decoration: underline;
+}

@@ -1,0 +1,64 @@
+.status-bar-wrapper {
+  display: flex;
+  width: 375px;
+  height: 43px;
+  padding-top: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.status-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.status-left-time {
+  display: flex;
+  padding: 0 6px 0 2px;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+}
+
+.status-time {
+  color: #000;
+  font-family: 'SF Pro', sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 22px;
+}
+
+.status-dynamic-island {
+  flex: 1;
+}
+
+.status-level {
+  display: flex;
+  padding: 0 2px 0 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex: 1 0 0;
+}
+.status-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icon {
+  display: block;
+  height: 13px;
+}
+
+.status-icon.battery {
+  width: 27.328px;
+  height: 13px;
+}
