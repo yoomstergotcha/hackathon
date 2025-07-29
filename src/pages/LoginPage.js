@@ -11,27 +11,27 @@ function LoginPage() {
   const [pw, setPw] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    console.log('로그인 시도 (테스트 모드)');
-    alert(`환영합니다`); // 더미 데이터
-    navigate('/main'); // 로그인 성공 후 메인 페이지로 이동
-  };
-  //const handleLogin = async () => {
-  //try {
-  //const response = await axios.post('http://localhost:8080/users/login', {
-  //handle,
-  //password,
-  //});
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        'https://api.newsto.r-e.kr/users/login',
+        {
+          handle: id,
+          password: pw,
+        }
+      );
 
-  // console.log('로그인 성공:', response.data);
-  //alert(`환영합니다`);
-  //navigate('/main'); // 로그인 성공 후 메인 페이지로 이동
-  // }; catch (error) {
-  //if (error.response) {
-  //alert(`로그인 실패: ${error.response.data.message}`);
-  //} else {
-  // alert('서버와 연결할 수 없습니다. 잠시 후 다시 시도해주세요.');
-  //}
+      console.log('로그인 성공:', response.data);
+      alert(`환영합니다`);
+      navigate('/main'); // 로그인 성공 후 메인 페이지로 이동
+    } catch (error) {
+      if (error.response) {
+        alert(`로그인 실패: ${error.response.data.message}`);
+      } else {
+        alert('서버와 연결할 수 없습니다. 잠시 후 다시 시도해주세요.');
+      }
+    }
+  };
 
   return (
     <div className="login-page">
