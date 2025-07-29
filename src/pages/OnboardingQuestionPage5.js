@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
 import '../assets/styles/OnboardingQuestionPage.css';
+import onboarding5 from '../assets/images/onboarding5.svg';
 
 function OnboardingQuestionPage5({
   questionNumber = 5,
   totalQuestions = 7,
-  question = '질문',
+  question = '주식 추천 글을 볼 때 더 자주하는 선택은?',
 }) {
   const navigate = useNavigate();
   const handleAnswer = (answer) => {
@@ -41,16 +42,24 @@ function OnboardingQuestionPage5({
         <div className="progress-bar-fill" style={{ width: progressWidth }} />
       </div>
 
+      {/* 온보딩 이미지 */}
+      <div className="onboarding-image-wrapper">
+        <img
+          src={onboarding5}
+          alt="온보딩 이미지"
+          className="onboarding-image-5"
+        />
+      </div>
       {/* 질문 */}
-      <h2 className="question-title">{question}</h2>
+      <h2 className="question-title-5">{question}</h2>
 
       {/* 응답 박스 */}
       <div className="answer-list">
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 1')}>
-          예시 응답 1
+          항상보던 반도체로 봐야겠다.
         </div>
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 2')}>
-          예시 응답 2
+          종목 상관 없이 다 보는게 더 재밌어.
         </div>
       </div>
     </div>

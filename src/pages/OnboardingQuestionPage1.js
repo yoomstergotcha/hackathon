@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
 import '../assets/styles/OnboardingQuestionPage.css';
+import onboarding1 from '../assets/images/onboarding1.svg';
 
 function OnboardingQuestionPage1({
   questionNumber = 1,
   totalQuestions = 7,
-  question = "'최근 뉴스에서 ‘전기차 화재가 증가하고 있다'라는 보도를 봤습니다. 이때 당신의 반응은?'",
+  question = "최근 뉴스에서 ‘전기차 화재가 증가하고 있다' 라는 보도를 봤습니다. 이때 당신의 반응은?",
 }) {
   const navigate = useNavigate();
   const handleAnswer = (answer) => {
@@ -42,6 +43,15 @@ function OnboardingQuestionPage1({
       {/* 진행률 바 */}
       <div className="progress-bar-bg">
         <div className="progress-bar-fill" style={{ width: progressWidth }} />
+      </div>
+
+      {/* 온보딩 이미지 */}
+      <div className="onboarding-image-wrapper">
+        <img
+          src={onboarding1}
+          alt="온보딩 이미지"
+          className="onboarding-image"
+        />
       </div>
 
       {/* 질문 */}

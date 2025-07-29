@@ -24,7 +24,7 @@
 
 /* 성향 텍스트 */
 .result-texts {
-  margin-top: 16px;
+  margin-top: 75px;
   text-align: left;
   width: 90%;
 }
@@ -35,6 +35,8 @@
   font-size: 20px;
   font-weight: 700;
   line-height: normal;
+  margin-left: 20px;
+  margin-top: -15px;
 }
 
 .tendency-summary {
@@ -44,28 +46,33 @@
   font-weight: 400;
   line-height: normal;
   margin-top: 4px;
+  margin-left: 20px;
 }
 
 /* 중앙 이미지 */
 .result-image-wrapper {
   margin: 40px 0;
+  align-items: center;
   display: flex;
   justify-content: center;
 }
 
 .result-image {
-  width: 171px;
-  height: 171px;
+  width: 120px;
+  height: auto;
   object-fit: contain;
+  align-items: center;
+  margin-top: 200px;
+  margin-left: 120px;
 }
 
-/* 하단 회색 바 */
+/* 하단 보라 바 */
 .bottom-gray-bar {
   position: relative;
-  bottom: 0;
+  bottom: -210px;
   width: 375px;
-  height: 350px;
-  background: #d9d9d9;
+  height: 450px;
+  background: var(--pri, #8646f2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,9 +84,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 231px;
+  margin-top: -47px;
+  width: 270px;
   height: 56px;
-  padding: 16px 47px;
+  padding: 10px 40px;
   gap: 8px;
   border-radius: 10px;
   border: 1px solid var(--b, #3c3e44);
@@ -95,12 +103,43 @@
 }
 
 .tendency-description {
-  margin-top: 20px;
-  padding: 0 20px;
-  text-align: center;
-  color: #000;
+  margin-top: 10px;
+  padding: 20px 20px;
+  color: var(--w, #fcfeff);
+
+  /* 콩떡/Title/Small */
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.complete-button {
+  width: 300px;
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid var(--b, #3c3e44);
+  background: var(--w, #fcfeff);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.tendency-description-2 {
+  margin-top: -20px;
+  padding: 20px 20px;
+  color: var(--w, #fcfeff);
+
+  /* 콩떡/Caption/Medium */
   font-family: 'Apple SD Gothic Neo';
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-left: 10px;
+  margin-right: 10px;
 }

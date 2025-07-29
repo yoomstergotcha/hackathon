@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
 import '../assets/styles/OnboardingQuestionPage.css';
+import onboarding3 from '../assets/images/onboarding3.svg';
 
 function OnboardingQuestionPage3({
   questionNumber = 3,
   totalQuestions = 7,
-  question = '질문',
+  question = '댓글 대부분이 한쪽 의견에 동의하고 있을 때 당신의 반응은?',
 }) {
   const navigate = useNavigate();
   const handleAnswer = (answer) => {
@@ -41,16 +42,25 @@ function OnboardingQuestionPage3({
         <div className="progress-bar-fill" style={{ width: progressWidth }} />
       </div>
 
+      {/* 온보딩 이미지 */}
+      <div className="onboarding-image-wrapper">
+        <img
+          src={onboarding3}
+          alt="온보딩 이미지"
+          className="onboarding-image-3"
+        />
+      </div>
+
       {/* 질문 */}
-      <h2 className="question-title">{question}</h2>
+      <h2 className="question-title-3">{question}</h2>
 
       {/* 응답 박스 */}
       <div className="answer-list">
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 1')}>
-          예시 응답 1
+          댓글이 민심이지. 이 말이 맞는 것 같아.
         </div>
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 2')}>
-          예시 응답 2
+          흠.. 혹시 모르니 다른 기사도 찾아봐야겠다.
         </div>
       </div>
     </div>

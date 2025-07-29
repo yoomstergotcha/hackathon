@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import backIcon from '../assets/images/back.svg';
 import '../assets/styles/OnboardingQuestionPage.css';
+import onboarding2 from '../assets/images/onboarding2.svg';
 
 function OnboardingQuestionPage2({
   questionNumber = 2,
   totalQuestions = 7,
-  question = '질문',
+  question = '정보를 찾을 때 어떤걸 먼저 고려하나요?',
 }) {
   const navigate = useNavigate();
   const handleAnswer = (answer) => {
@@ -41,16 +42,29 @@ function OnboardingQuestionPage2({
         <div className="progress-bar-fill" style={{ width: progressWidth }} />
       </div>
 
+      {/* 온보딩 이미지 */}
+      <div className="onboarding-image-wrapper">
+        <img
+          src={onboarding2}
+          alt="온보딩 이미지"
+          className="onboarding-image-2"
+        />
+      </div>
+
       {/* 질문 */}
-      <h2 className="question-title">{question}</h2>
+      <div className="title-box">
+        <h2 className="question-title-2">{question}</h2>
+      </div>
 
       {/* 응답 박스 */}
       <div className="answer-list">
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 1')}>
-          예시 응답 1
+          익숙한 언론사가 신뢰할 수 있지.
         </div>
         <div className="answer-box" onClick={() => handleAnswer('예시 응답 2')}>
-          예시 응답 2
+          다양한 언론사에서
+          <br />
+          새로운 인사이트를 접하고 싶어.
         </div>
       </div>
     </div>
