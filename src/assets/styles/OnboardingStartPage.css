@@ -26,8 +26,13 @@
 .subtitle {
   font-size: 18px;
   font-weight: 600;
-  color: #444;
+  color: #fff; /* 배경색과 대비되도록 흰색 */
   margin-bottom: 4px;
+
+  border-radius: 30px;
+  background: var(--sec, #ac7bff);
+  padding: 6px 16px; /* 안쪽 여백 */
+  display: inline-block; /* 글자 길이에 맞게 박스 생성 */
 }
 
 .description {
@@ -70,4 +75,22 @@
   object-fit: contain;
   border-radius: 16px;
   transition: transform 0.3s ease;
+}
+
+.onboarding-result {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.random-image {
+  width: 185px;
+  height: auto;
+  max-height: 401px;
+  border-radius: 16px;
+  object-fit: contain;
+  margin-top: 13px;
+  border-radius: 30px;
 }

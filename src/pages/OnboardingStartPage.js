@@ -2,14 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/OnboardingStartPage.css';
 import StatusBar from '../components/StatusBar';
-
-import onboarding2 from '../assets/images/onboarding2.svg';
-import onboarding3 from '../assets/images/onboarding3.svg';
-import onboarding6 from '../assets/images/onboarding6.svg';
+import onboarding from '../assets/images/onboarding.jpg';
 
 function OnboardingStartPage({}) {
   const navigate = useNavigate();
-  const images = [onboarding2, onboarding3, onboarding6];
 
   const handleSignup = () => {
     navigate('/onboardingquestion1');
@@ -28,25 +24,13 @@ function OnboardingStartPage({}) {
         </p>
       </div>
 
-      {/* 세 개 이미지 모두 렌더링 */}
-      {images.map((src, idx) => {
-        // 랜덤 offset: -50~50px
-        const offsetX = Math.random() * 100 - 50;
-        const offsetY = Math.random() * 100 - 50;
-        const rotate = Math.random() * 30 - 15; // -15~15도
-        return (
-          <img
-            key={idx}
-            src={src}
-            alt={`검사 미리보기 ${idx}`}
-            className="result-image"
-            style={{
-              transform: `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) rotate(${rotate}deg)`,
-              zIndex: idx + 1,
-            }}
-          />
-        );
-      })}
+      <div className="onboarding-result">
+        <img
+          src={onboarding}
+          alt="온보딩 결과 미리보기"
+          className="random-image"
+        />
+      </div>
 
       <div className="bottom-bar">
         <button className="start-button" onClick={handleSignup}>
