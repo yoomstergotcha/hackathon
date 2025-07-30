@@ -33,12 +33,16 @@
   display: flex;
   margin-left: 20px;
   margin-right: 10px;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
   /* Firefox에서 스크롤바 제거 */
 }
 

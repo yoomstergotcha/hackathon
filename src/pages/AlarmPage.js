@@ -20,6 +20,18 @@ function Alarm() {
     '외교',
     '법안',
   ];
+  // 프론트 키워드 → 백엔드 group 매핑
+  const keywordMap = {
+    대통령실: 'president',
+    국회: 'congress',
+    정당: 'party',
+    선거: 'election',
+    정부부처: 'ministry',
+    '안보/국방': 'defense',
+    외교: 'diploymacy', // 오타: diplomacy가 맞을 듯?
+    사회정책: 'policy',
+    정치일반: 'politics',
+  };
 
   const [selectedKeyword, setSelectedKeyword] = useState(null);
   const [articles, setArticles] = useState([]);
@@ -36,7 +48,7 @@ function Alarm() {
 
         if (selectedKeyword && selectedKeyword !== '전체') {
           url = 'https://api.newsto.r-e.kr/alarms';
-          params = { group: selectedKeyword };
+          params = { group: keywordMap[selectedKeyword] };
         } else {
           url = 'https://api.newsto.r-e.kr/news/latest';
         }
