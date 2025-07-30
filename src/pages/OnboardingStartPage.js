@@ -2,10 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/OnboardingStartPage.css';
 import StatusBar from '../components/StatusBar';
-import onboardingresult from '../assets/images/onboarding.jpg';
+
+import onboarding2 from '../assets/images/onboarding2.svg';
+import onboarding3 from '../assets/images/onboarding3.svg';
+import onboarding6 from '../assets/images/onboarding6.svg';
 
 function OnboardingStartPage({}) {
   const navigate = useNavigate();
+  const images = [onboarding2, onboarding3, onboarding6];
+
   const handleSignup = () => {
     navigate('/onboardingquestion1');
   };
@@ -23,47 +28,25 @@ function OnboardingStartPage({}) {
         </p>
       </div>
 
-      <div className="result-frame-wrapper">
-        {/* 외곽 흰색 phone frame */}
-        <svg
-          className="phone-frame-outer"
-          xmlns="http://www.w3.org/2000/svg"
-          width="204"
-          height="461"
-          viewBox="0 0 204 461"
-          fill="none"
-        >
-          <path
-            d="M168.47 1L35.5224 1C16.1952 1 0.527344 18.1624 0.527344 39.3332L0.527344 421.667C0.527344 442.838 16.1952 460 35.5224 460H168.47C187.797 460 203.465 442.838 203.465 421.667V39.3332C203.465 18.1624 187.797 1 168.47 1Z"
-            fill="white"
-            stroke="#E0E1E6"
-            stroke-miterlimit="10"
+      {/* 세 개 이미지 모두 렌더링 */}
+      {images.map((src, idx) => {
+        // 랜덤 offset: -50~50px
+        const offsetX = Math.random() * 100 - 50;
+        const offsetY = Math.random() * 100 - 50;
+        const rotate = Math.random() * 30 - 15; // -15~15도
+        return (
+          <img
+            key={idx}
+            src={src}
+            alt={`검사 미리보기 ${idx}`}
+            className="result-image"
+            style={{
+              transform: `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) rotate(${rotate}deg)`,
+              zIndex: idx + 1,
+            }}
           />
-        </svg>
-
-        {/* 내부 회색 프레임 */}
-        <svg
-          className="phone-frame-inner"
-          xmlns="http://www.w3.org/2000/svg"
-          width="198"
-          height="454"
-          viewBox="0 0 198 454"
-          fill="none"
-        >
-          <path
-            opacity="0.48"
-            d="M164.968 0.518318L33.0264 0.518318C14.8036 0.518318 0.0292969 16.6973 0.0292969 36.6584L0.0292969 417.71C0.0292969 437.671 14.8036 453.854 33.0264 453.854H164.968C183.191 453.854 197.966 437.671 197.966 417.71V36.6584C197.966 16.6973 183.191 0.513672 164.968 0.513672V0.518318ZM196.269 417.979C196.269 436.648 182.453 451.782 165.41 451.782H32.5811C15.5374 451.782 1.72178 436.648 1.72178 417.979L1.72178 36.3936C1.72603 17.7288 15.5416 2.59528 32.5811 2.59528L165.414 2.59528C182.457 2.59528 196.273 17.7288 196.273 36.3982V417.974L196.269 417.979Z"
-            fill="#EAEAEC"
-          />
-        </svg>
-
-        {/* 이미지 */}
-        <img
-          src={onboardingresult}
-          alt="검사 미리보기"
-          className="result-image"
-        />
-      </div>
+        );
+      })}
 
       <div className="bottom-bar">
         <button className="start-button" onClick={handleSignup}>

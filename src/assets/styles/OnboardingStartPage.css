@@ -32,35 +32,9 @@
 
 .description {
   font-size: 14px;
-  color: var(--g4, #93959b);
+  color: var(--g4, #7d7f85);
   line-height: 1.5;
-}
-
-.result-frame-wrapper {
-  position: relative;
-  width: 204px;
-  height: 461px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 60px auto 18px auto;
-  overflow: hidden;
-}
-
-.phone-frame-outer {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.result-image {
-  position: absolute;
-  inset: 0; /* top:0, right:0, bottom:0, left:0 */
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 꽉 채우기 */
-  border-radius: 16px; /* 프레임 모서리와 맞춤 */
-  flex-shrink: 0;
+  margin-top: 5px;
 }
 
 .bottom-bar {
@@ -85,4 +59,15 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: -2%;
+}
+
+.result-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 185px;
+  max-height: 401px;
+  object-fit: contain;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
 }
