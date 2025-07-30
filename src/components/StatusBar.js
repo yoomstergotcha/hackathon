@@ -4,9 +4,9 @@ import cellularIcon from '../assets/images/cellular.svg';
 import wifiIcon from '../assets/images/wifi.svg';
 import batteryIcon from '../assets/images/battery.svg';
 
-function StatusBar() {
+function StatusBar({ backgroundColor = '#fff' }) {
   return (
-    <div className="status-bar-wrapper">
+    <div className="status-bar-wrapper" style={{ backgroundColor }}>
       <div className="status-bar-inner">
         <div className="status-left-time">
           <div className="status-time">9:41</div>

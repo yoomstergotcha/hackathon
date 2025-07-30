@@ -14,7 +14,8 @@ import OnboardingQuestionPage6 from './pages/OnboardingQuestionPage6';
 import OnboardingQuestionPage7 from './pages/OnboardingQuestionPage7';
 import OnboardingResultPage from './pages/OnboardingResultPage';
 import MainPage from './pages/MainPage';
-import Alarm from './pages/AlarmPage';
+import AlarmPage from './pages/AlarmPage';
+import DescriptionPage from './pages/DescriptionPage';
 
 function App() {
   return (
@@ -68,7 +69,9 @@ function App() {
 
             <Route path="/main" element={<MainPage />} />
 
-            <Route path="/alarm" element={<Alarm />} />
+            <Route path="/alarm" element={<AlarmPage />} />
+
+            <Route path="/description/:keyword" element={<DescriptionPage />} />
           </Routes>
         </Router>
       </div>

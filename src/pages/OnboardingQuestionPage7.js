@@ -49,7 +49,7 @@ function OnboardingQuestionPage7({
 
   return (
     <div className="onboarding-question-container">
-      <StatusBar />
+      <StatusBar backgroundColor="transparent" />
 
       <div className="back-button-container">
         <button className="back-button" onClick={() => navigate(-1)}>

@@ -1,0 +1,128 @@
+.description-page {
+  width: 100%;
+  min-height: 812px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.keyword-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 50px 0 20px;
+}
+
+.article-list {
+  width: 100%;
+  margin-left: 0; /* 음수 마진 제거 */
+  padding: 0 16px; /* 좌우 패딩 균등하게 */
+  box-sizing: border-box;
+}
+
+.article-card {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.article-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.article-date {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.summary-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  margin-left: 10px;
+}
+
+.article-summary {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+  margin-left: 10px;
+}
+
+/* 가로 스크롤 */
+.related-news-section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.related-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.related-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.related-card {
+  flex: 0 0 auto;
+  width: 160px;
+}
+
+.related-thumbnail {
+  width: 160px;
+  height: 90px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.related-info {
+  margin-top: 6px;
+}
+
+.related-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.news-icon-small {
+  width: 14px;
+  height: 14px;
+}
+
+.related-title-text {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+  line-height: 1.3;
+}

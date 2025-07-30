@@ -13,7 +13,7 @@ function OnboardingResultPage() {
 
   return (
     <div className="onboarding-result-container">
-      <StatusBar />
+      <StatusBar backgroundColor="transparent" />
 
       {/* 상단바 */}
       <div className="back-button-container">

@@ -11,7 +11,7 @@ function StartPage() {
 
   return (
     <div className="start-page">
-      <StatusBar />
+      <StatusBar backgroundColor="transparent" />
 
       <div className="start-content">
         <img src={logo} alt="logo" className="logo" />

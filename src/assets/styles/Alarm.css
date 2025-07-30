@@ -5,7 +5,6 @@
   background: white;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
 }
 
@@ -32,20 +31,43 @@
 /* 키워드 버튼 */
 .keyword-row {
   display: flex;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 10px;
   justify-content: space-around;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  /* Firefox에서 스크롤바 제거 */
 }
 
 .keyword-btn {
-  padding: 4px 8px;
-  font-size: 12px;
-  background: #f3f3f5;
-  border-radius: 12px;
-  border: none;
+  flex-shrink: 0;
+  padding: 6px 16px;
+  margin: 0 6px;
+  border-radius: 20px;
+  border: 1px solid #8646f2;
+  background-color: white;
+  color: #8646f2;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s; /* 부드러운 색상 전환 */
+}
+
+.keyword-btn:hover {
+  background-color: #8646f2; /* hover 시 배경색 */
+  color: white; /* hover 시 글자색 반전 */
+}
+
+.keyword-btn.active {
+  background-color: #8646f2; /* 선택 시 유지 색상 */
+  color: white;
+}
+
+.keyword-row::-webkit-scrollbar {
+  display: none; /* Chrome/Safari 스크롤바 숨김 */
 }
 
 /* 기사 리스트 */
@@ -53,7 +75,7 @@
   margin-top: 10px;
   flex: 1;
   overflow-y: auto;
-  padding: 20px 16px 80px 16px; /* bottom padding for nav */
+  padding: 10px 16px 70px 16px; /* bottom padding for nav */
 }
 
 .article-item {
@@ -107,7 +129,8 @@
   align-items: flex-start;
   width: 315px;
   position: relative;
-  margin-left: 8%;
+  margin-left: -5px;
+  margin-top: -10px;
 }
 
 .article-summary {
@@ -115,6 +138,7 @@
   font-size: 14px;
   color: #666;
   line-height: 1.4;
+  margin-left: 10px;
 }
 
 /* BottomNavBar는 이미 별도 컴포넌트 스타일 존재 */
