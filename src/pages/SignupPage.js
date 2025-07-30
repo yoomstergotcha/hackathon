@@ -17,7 +17,7 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSignup = async () => {
+  /* const handleSignup = async () => {
     // 비밀번호 확인
     if (password !== confirmPassword) {
       alert('비밀번호가 일치하지 않습니다.');
@@ -51,7 +51,8 @@ function SignupPage() {
         alert('서버와 연결할 수 없습니다. 잠시 후 다시 시도해주세요.');
       }
     }
-  };
+  } /*
+
   // ✅ 임시 우회 (백엔드 호출 없이 바로 이동)
   //alert('임시 회원가입 완료! 온보딩 페이지로 이동합니다.');
   //navigate('/onboarding');
@@ -83,6 +84,17 @@ function SignupPage() {
     }
       */
   //};
+
+  const handleSignup = () => {
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    // ✅ 임시 회원가입 처리
+    alert('회원가입 완료! 자가진단 페이지로 이동합니다.');
+    navigate('/onboarding');
+  };
 
   return (
     <div className="signup-page">
