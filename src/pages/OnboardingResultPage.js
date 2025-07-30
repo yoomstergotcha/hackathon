@@ -58,5 +58,4 @@ function OnboardingResultPage() {
     </div>
   );
 }
-
 export default OnboardingResultPage;

@@ -62,8 +62,8 @@
   height: auto;
   object-fit: contain;
   align-items: center;
-  margin-top: 200px;
-  margin-left: 120px;
+  margin-top: -200px;
+  margin-left: -55px;
 }
 
 /* 하단 보라 바 */
