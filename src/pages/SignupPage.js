@@ -23,11 +23,40 @@ function SignupPage() {
       alert('비밀번호가 일치하지 않습니다.');
       return;
     }
-    // ✅ 임시 우회 (백엔드 호출 없이 바로 이동)
-    alert('임시 회원가입 완료! 온보딩 페이지로 이동합니다.');
-    navigate('/onboarding');
 
-    /*
+    try {
+      // 2. 회원가입 POST 요청
+      const response = await axios.post(
+        'https://api.newsto.r-e.kr/users/signup',
+        {
+          username: username,
+          handle: handle,
+          password: password,
+        }
+      );
+
+      console.log('회원가입 성공:', response.data);
+
+      if (response.data.status === 'A') {
+        alert('회원가입 성공! 자가진단 페이지로 이동합니다.');
+        navigate('/onboarding');
+      } else {
+        alert('회원가입은 되었지만 상태가 정상(A)이 아닙니다.');
+      }
+    } catch (error) {
+      // 4. 에러 처리
+      if (error.response) {
+        alert(`회원가입 실패: ${error.response.data.message || '서버 에러'}`);
+      } else {
+        alert('서버와 연결할 수 없습니다. 잠시 후 다시 시도해주세요.');
+      }
+    }
+  };
+  // ✅ 임시 우회 (백엔드 호출 없이 바로 이동)
+  //alert('임시 회원가입 완료! 온보딩 페이지로 이동합니다.');
+  //navigate('/onboarding');
+
+  /*
     try {
       // 회원가입 POST 요청
       const response = await axios.post('http://localhost:8080/api/signup', {
@@ -53,7 +82,7 @@ function SignupPage() {
       }
     }
       */
-  };
+  //};
 
   return (
     <div className="signup-page">
@@ -71,6 +100,7 @@ function SignupPage() {
           <input
             className="signup-input"
             placeholder="이름을 입력해주세요"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -91,13 +121,17 @@ function SignupPage() {
         <div className="form-group">
           <label className="input-label">비밀번호 입력</label>
           <input
+            type="password"
             className="signup-input"
             placeholder="비밀번호를 입력해주세요"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <input
+            type="password"
             className="signup-input"
             placeholder="비밀번호를 확인해주세요"
+            value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <p className="input-helper">
